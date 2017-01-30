@@ -142,10 +142,23 @@ class DatabaseClass:
         return self.select(query)
 
     def set_sport_activity(self, equipment_id, user_id, time, calories):
+        """"
+            Sets sport activity. Used for Equipment_used table.
+
+            Args:
+                STRING: equipment_id: ID of used equipment
+                STRING: user_id: ID of user
+                STRING: time: Time in minutes
+                STRING: calories: Burned calories
+            Returns:
+                --
+        """
+        date = datetime.datetime.now()
         query = "INSERT INTO " \
                 "`Equipment_used`(`" \
                 "Equipment_ID`, " \
                 "`User_ID`, " \
                 "`Time`, " \
-                "`Calories`) VALUES ({0},{1},{2},{3})".format(equipment_id, user_id, time, calories)
+                "`Calories`, " \
+                "`Date`) VALUES ({0},{1},{2},{3},'{4}')".format(equipment_id, user_id, time, calories, date)
         self.insert(query)
