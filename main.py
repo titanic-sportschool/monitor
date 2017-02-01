@@ -54,6 +54,7 @@ def main():
 
             # Write to database
             db.set_sport_activity(selected_equipment, user['User_ID'], time, calories)
+            print('Activiteit opgeslagen in database')
         else:
             print('Login failed')
 
